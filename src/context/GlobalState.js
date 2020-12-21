@@ -1,13 +1,15 @@
 import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer'
 
+
+
 const initialState = {
     properties: [
         { 
             id: 1, 
             name: 'Single Family HOuse', 
             location: 'Queens, NY', 
-            arv: 'Frontend Dev', 
+            arv: 'house for sale amazing!!', 
             fee: '$100' 
         }
     ]
@@ -19,21 +21,21 @@ export const GlobalProvider = ({ children }) => {
 
     function removeProperty(id) {
         dispatch({
-            type: 'REMOVE_EMPLOYEE',
+            type: 'REMOVE_PROPERTY',
             payload: id
         });
     };
 
     function addProperty(properties) {
         dispatch({
-            type: 'ADD_EMPLOYEES',
+            type: 'ADD_PROPERTIES',
             payload: properties
         });
     };
 
     function editProperty(properties) {
         dispatch({
-            type: 'EDIT_EMPLOYEE',
+            type: 'EDIT_PROPERTY',
             payload: properties
         });
     };

@@ -14,7 +14,7 @@ export const Addproperty = () => {
     const onSubmit = e => {
         e.preventDefault();
         const newProperty = {
-            id: properties.length + 1,
+            id: properties.length + (Math.random() * 10),
             name,
             location,
             fee,
@@ -22,6 +22,7 @@ export const Addproperty = () => {
         }
         addProperty(newProperty);
         history.push("/");
+
     }
 
     return (
