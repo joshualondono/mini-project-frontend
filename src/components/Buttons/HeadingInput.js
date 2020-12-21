@@ -11,6 +11,37 @@ export const Buttons = () => {
             localStorage.setItem('properties', `QUEUE: ${JSON.stringify(properties)}`);
             localStorage.setItem('save', `HISTORY: ${JSON.stringify(properties)}`);
 
+            const axios = require("axios");
+const querystring = require('querystring');
+
+// Twilio (TEST) Credentials found here:
+// https://www.twilio.com/console/project/settings
+const apiVersion = '2010-04-01';
+const accountSid = 'ACc24e62e00379f444d47553159665743e';
+const authToken = '311194e78bd9f4475a1e7d0b316b60fd';
+
+axios.post(`https://api.twilio.com/${apiVersion}/Accounts/${accountSid}/Messages.json`, querystring.stringify({
+  Body: `Test messages QUEUE: ${JSON.stringify(properties)}`,
+  From: "2314409929",
+  To: "5619832659"
+}), {
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Authorization": `Basic ${Buffer.from(accountSid + ':' + authToken).toString('base64')}`
+  }
+})
+  .then(response => {
+    const { body, to, status } = response.data;
+    console.log("Succesful!", {
+      body,
+      to,
+      status
+    });
+  })
+  .catch(error => {
+    console.log("Error", error.response.data);
+  })
+
       }
     //alert(localStorage.getItem('properties'));
 
