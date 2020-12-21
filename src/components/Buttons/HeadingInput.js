@@ -17,13 +17,13 @@ const querystring = require('querystring');
 // Twilio (TEST) Credentials found here:
 // https://www.twilio.com/console/project/settings
 const apiVersion = '2010-04-01';
-const accountSid = 'ACc24e62e00379f444d47553159665743e';
-const authToken = '311194e78bd9f4475a1e7d0b316b60fd';
+const accountSid = '';
+const authToken = '';
 
 axios.post(`https://api.twilio.com/${apiVersion}/Accounts/${accountSid}/Messages.json`, querystring.stringify({
   Body: `Test messages QUEUE: ${JSON.stringify(properties)}`,
   From: "2314409929",
-  To: "5619832659"
+  To: "7726462662"
 }), {
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
